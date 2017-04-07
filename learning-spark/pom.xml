@@ -14,6 +14,8 @@
         <spark.version>2.1.0</spark.version>
         <scalatest.version>3.0.1</scalatest.version>
         <junit.version>4.12</junit.version>
+        <spark-csv.version>1.5.0</spark-csv.version>
+        <spark-cassandra-connector.version>2.0.1</spark-cassandra-connector.version>
     </properties>
     <dependencies>
         <dependency>
@@ -45,6 +47,18 @@
             <version>${spark.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.databricks</groupId>
+            <artifactId>spark-csv_${spark-scala.version}</artifactId>
+            <version>${spark-csv.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.datastax.spark</groupId>
+            <artifactId>spark-cassandra-connector_${spark-scala.version}</artifactId>
+            <version>${spark-cassandra-connector.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.scalatest</groupId>
             <artifactId>scalatest_${spark-scala.version}</artifactId>
