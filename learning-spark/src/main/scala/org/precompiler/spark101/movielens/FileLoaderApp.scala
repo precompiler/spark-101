@@ -30,13 +30,14 @@ object FileLoaderApp extends ParameterizedApp {
       val movieRatingDF = sparkSession.sql(
         """select movie.movieId,
                   movie.title,
+                  regexp_extract(movie.title, '.*\\((\\d{4})\\)', 1) year,
                   movie.genres,
                   round(avg(rating.rating),2) avg_rating
            from movie, rating
           where movie.movieId = rating.movieId
        group by movie.movieId, movie.title, movie.genres""")
-      movieRatingDF.rdd.map(row => (row.getAs[String]("title"), row.getAs[String]("genres"), row.getAs[Double]("avg_rating")))
-        .saveToCassandra("demo", "movie_avg_rating", SomeColumns("title", "genres", "avg_rating"), WriteConf(consistencyLevel = ConsistencyLevel.ONE))
+      movieRatingDF.rdd.map(row => (row.getAs[String]("title"), row.getAs[String]("year"), row.getAs[String]("genres"), row.getAs[Double]("avg_rating")))
+        .saveToCassandra("demo", "movie_avg_rating", SomeColumns("title", "year", "genres", "avg_rating"), WriteConf(consistencyLevel = ConsistencyLevel.ONE))
     } finally {
       sparkSession.stop()
     }
