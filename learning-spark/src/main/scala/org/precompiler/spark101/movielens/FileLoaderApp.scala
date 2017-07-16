@@ -3,7 +3,7 @@ package org.precompiler.spark101.movielens
 import com.datastax.driver.core.ConsistencyLevel
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.SparkConf
-import org.precompiler.spark101.util.ParameterizedApp
+import org.precompiler.spark101.utils.ParameterizedApp
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.writer.WriteConf
 

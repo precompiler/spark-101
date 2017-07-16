@@ -1,4 +1,4 @@
-package org.precompiler.spark101.util
+package org.precompiler.spark101.utils
 
 import com.typesafe.config.{Config, ConfigFactory}
 
@@ -6,7 +6,7 @@ import com.typesafe.config.{Config, ConfigFactory}
   *
   * @author Richard Li
   */
-class ParameterizedApp {
+trait ParameterizedApp {
   def loadProperties(path: String = "application.properties"): Config = {
     ConfigFactory.load(path)
   }
