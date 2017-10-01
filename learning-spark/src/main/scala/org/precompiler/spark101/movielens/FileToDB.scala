@@ -3,7 +3,7 @@ package org.precompiler.spark101.movielens
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
 import org.precompiler.spark101.movielens.FileLoaderApp.loadProperties
-import org.precompiler.spark101.util.ParameterizedApp
+import org.precompiler.spark101.utils.ParameterizedApp
 
 /**
   *
